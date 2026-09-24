@@ -4,7 +4,15 @@ import FitCards from "../components/shared/FitCards";
 
 const getFitLog = async () => {
   try {
-    const res = await fetch("https://api.abcz.workers.dev/api/fitlog");
+    const res = await fetch("https://api.abcz.workers.dev/api/fitlog", {
+      cache: "force-cache",
+    });
+
+    if (!res.ok) {
+      console.log(`faild to fetch: ${res.status}`);
+      return [];
+    }
+
     return res.json();
   } catch (error) {
     console.log("Error fetching fitLog data", error);
