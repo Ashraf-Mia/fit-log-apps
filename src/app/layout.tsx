@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/shared/Navbar";
 import Footer from "./components/shared/Footer";
 import FitLogProvider from "@/context/FitLogContext";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,6 +34,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Navbar />
           <div>{children}</div>
           <Footer />
+          <ToastContainer
+            position="bottom-right"
+            autoClose={3000}
+            theme="colored"
+          />
         </FitLogProvider>
       </body>
     </html>

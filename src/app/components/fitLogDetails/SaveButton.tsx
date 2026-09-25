@@ -3,12 +3,14 @@ import { FitLogContext } from "@/context/FitLogContext";
 import { FitType } from "@/types/FitType";
 import React, { useContext } from "react";
 import { GoBookmark } from "react-icons/go";
+import { toast } from "react-toastify";
 
 const SaveButton = ({ fitLog }: { fitLog: FitType }) => {
   const { save, setSave } = useContext(FitLogContext);
 
   const handleSaveButton = () => {
     setSave([...save, fitLog]);
+    toast.success(`You have save ${fitLog.name}`);
   };
 
   return (
