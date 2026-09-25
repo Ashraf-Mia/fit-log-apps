@@ -1,8 +1,11 @@
-// import { FitLogContext } from "@/context/FitLogContext";
-// import React, { useContext } from "react";
+"use client";
+import { FitLogContext } from "@/context/FitLogContext";
+import React, { useContext } from "react";
+
+import MyPlanCard from "../components/shared/MyPlanCard";
 
 const MyPlanPage = () => {
-  //   const { plan, save } = useContext(FitLogContext);
+  const { plan, save } = useContext(FitLogContext);
 
   return (
     <div className=" container mx-auto">
@@ -35,7 +38,13 @@ const MyPlanPage = () => {
             aria-label="Today's Plan"
           />
           <div className="tab-content bg-base-100 border-base-300 p-6">
-            Tab content 1
+            {plan.length > 0 ? (
+              plan.map((planData) => {
+                return <MyPlanCard key={planData.id} planData={planData} />;
+              })
+            ) : (
+              <p>No fit log found</p>
+            )}
           </div>
 
           <input
@@ -46,10 +55,16 @@ const MyPlanPage = () => {
             defaultChecked
           />
           <div className="tab-content bg-base-100 border-base-300 p-6">
-            Tab content 2
+            {save.length > 0 ? (
+              save.map((planData) => {
+                return <MyPlanCard key={planData.id} planData={planData} />;
+              })
+            ) : (
+              <p>No fit log found</p>
+            )}
           </div>
         </div>
-        <div className=" absolute right-0 top-0 flex items-center gap-3">
+        <div className=" absolute right-1 top-10 flex items-center gap-3">
           <h1 className=" whitespace-nowrap text-[12px] text-[#8A92A0]">
             Sort By
           </h1>
