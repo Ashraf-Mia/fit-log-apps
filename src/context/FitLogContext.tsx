@@ -1,10 +1,37 @@
-// "use client";
-// import React, { createContext } from "react";
+"use client";
+import { FitType } from "@/types/FitType";
+import React, { createContext, ReactNode, useState } from "react";
 
-// export const FitLogProvider = createContext({});
+interface IFitLogContext {
+  plan: FitType[];
+  setPlan: React.Dispatch<React.SetStateAction<FitType[]>>;
+  save: FitType[];
+  setSave: React.Dispatch<React.SetStateAction<FitType[]>>;
+}
 
-// const FitLogProvider = () => {
-//   return <div></div>;
-// };
+export const FitLogContext = createContext<IFitLogContext>({
+  plan: [],
+  setPlan: () => {},
+  save: [],
+  setSave: () => {},
+});
 
-// export default FitLogProvider;
+const FitLogProvider = ({ children }: { children: ReactNode }) => {
+  const [plan, setPlan] = useState<FitType[]>([]);
+  const [save, setSave] = useState<FitType[]>([]);
+
+  const sharedData = {
+    save,
+    setSave,
+    plan,
+    setPlan,
+  };
+
+  return (
+    <FitLogContext.Provider value={sharedData}>
+      {children}
+    </FitLogContext.Provider>
+  );
+};
+
+export default FitLogProvider;

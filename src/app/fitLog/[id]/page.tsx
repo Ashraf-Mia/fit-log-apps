@@ -1,8 +1,8 @@
+import PlanButton from "@/app/components/fitLogDetails/PlanButton";
+import SaveButton from "@/app/components/fitLogDetails/SaveButton";
 import { FitType } from "@/types/FitType";
 import Image from "next/image";
 import React from "react";
-import { GoBookmark } from "react-icons/go";
-import { PiCalendarPlus } from "react-icons/pi";
 
 interface IFitLogDetailsPageProps {
   params: Promise<{
@@ -13,7 +13,9 @@ interface IFitLogDetailsPageProps {
 const FitLogDetailsPage = async ({ params }: IFitLogDetailsPageProps) => {
   const { id } = await params;
 
-  const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`);
+  const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`, {
+    cache: "force-cache",
+  });
   const fitLog = (await res.json()) as FitType;
 
   const {
@@ -46,7 +48,7 @@ const FitLogDetailsPage = async ({ params }: IFitLogDetailsPageProps) => {
   ];
 
   return (
-    <div className=" container flex justify-between mx-auto py-12">
+    <div className=" container flex justify-between gap-14 mx-auto py-12 max-w-300">
       <div>
         <Image
           src={image}
@@ -94,13 +96,8 @@ const FitLogDetailsPage = async ({ params }: IFitLogDetailsPageProps) => {
           ))}
         </div>
         <div className=" flex gap-4">
-          <button className=" btn btn-success bg-[#CCFF00] flex gap-2 items-center">
-            <PiCalendarPlus /> Add to today's plan
-          </button>
-          <button className=" btn btn-outline flex gap-2 items-center">
-            {" "}
-            <GoBookmark /> Save for later
-          </button>
+          <PlanButton fitLog={fitLog} />
+          <SaveButton fitLog={fitLog} />
         </div>
       </div>
     </div>
