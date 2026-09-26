@@ -42,25 +42,25 @@ const MyPlanPage = () => {
       : save.reduce((total, exercise) => total + exercise.caloriesBurned, 0);
 
   return (
-    <div className=" container mx-auto">
+    <div className=" container mx-auto px-4 md:px-6 py-8">
       <h2 className="font-oswald font-bold text-3xl">MY PLAN</h2>
       <p className=" text-[14px] text-[#8A92A0] pt-2 pb-6">
         Cap of five lifts for today. Finish them, then load more.
       </p>
-      <div className=" grid grid-cols-3 bg-[#13161D] border-[#232732] p-8 rounded-2xl">
+      <div className=" grid grid-cols-1  lg:grid-cols-3 bg-[#13161D] border-[#232732] p-5 md:p-8 rounded-2xl gap-6">
         <div>
           <p className="text-[#8A92A0] text-[12px]">Exercises</p>
-          <h2 className=" fotn-oswald font-bold text-4xl text-[#CCFF00]">
+          <h2 className=" font-oswald font-bold text-4xl text-[#CCFF00]">
             {totalExercise}
           </h2>
         </div>
         <div>
           <p className="text-[#8A92A0] text-[12px]">Minutes</p>
-          <h2 className=" fotn-oswald font-bold text-4xl">{totalMinutes}</h2>
+          <h2 className=" font-oswald font-bold text-4xl">{totalMinutes}</h2>
         </div>
         <div>
           <p className="text-[#8A92A0] text-[12px]">Calories</p>
-          <h2 className=" fotn-oswald font-bold text-4xl">{totalCalories}</h2>
+          <h2 className=" font-oswald font-bold text-4xl">{totalCalories}</h2>
         </div>
       </div>
 

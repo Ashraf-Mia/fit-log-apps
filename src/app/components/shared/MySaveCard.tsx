@@ -24,8 +24,8 @@ const MySaveCard = ({ planData }: { planData: FitType }) => {
 
   return (
     <div className="card bg-[#14171E] border border-[#232732] ">
-      <div className=" card-body flex flex-row justify-between items-center">
-        <div className=" flex items-center gap-4 ">
+      <div className=" card-body flex flex-col md:flex-row justify-between items-center text-center lg:text-left gap-4 md:gap-6 p-4 md:p-6">
+        <div className=" flex flex-col sm:flex-row items-center gap-4 ">
           <figure>
             <Image
               src={image}
@@ -37,9 +37,7 @@ const MySaveCard = ({ planData }: { planData: FitType }) => {
           </figure>
 
           <div>
-            <h2 className="card-title font-oswald text-[16px] font-bold">
-              {name}
-            </h2>
+            <h2 className=" font-oswald text-[16px] font-bold">{name}</h2>
             <p className=" pb-2 text-[12px] text-[#8A92A0] ">{equipment}</p>
 
             <div className="card-actions justify-start gap-4 ">

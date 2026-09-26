@@ -50,7 +50,9 @@ const FitCards = ({ fitLog }: { fitLog: FitType }) => {
             )}
           </div>
           <h2 className="card-title">{name}</h2>
-          <p className=" pb-2">{equipment}</p>
+          <p className=" pb-2 text-left text-[12px] text-[#9CA3AF]">
+            {equipment}
+          </p>
           <hr className=" text-[#515560] py-2" />
           <div className="card-actions justify-start gap-4 ">
             <div className=" text-[12px] text-[#9CA3Af] flex gap-1 items-center">

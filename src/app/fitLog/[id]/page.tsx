@@ -48,19 +48,21 @@ const FitLogDetailsPage = async ({ params }: IFitLogDetailsPageProps) => {
   ];
 
   return (
-    <div className=" container flex justify-between gap-14 mx-auto py-12 max-w-300">
-      <div>
+    <div className=" container flex flex-col lg:flex-row justify-between gap-8 lg:gap-14 mx-auto py-8 lg:py-12 px-4 md:px-6 max-w-300">
+      <div className=" w-full lg:w-1/2 h-auto overflow-hidden">
         <Image
           src={image}
           alt={name}
           width={588}
           height={773}
-          className=" rounded-2xl"
+          className=" rounded-2xl w-full h-auto object-cover"
         />
       </div>
-      <div className=" space-y-4">
+      <div className=" w-full lg:w-1/2 space-y-4 lg:space-y-6">
         <h2 className=" text-4xl font-oswald font-bold">{name}</h2>
-        <p className=" text-[#9CA3AF] text-[16px]">{description}</p>
+        <p className=" text-[#9CA3AF] text-[14px] lg:text-[16px]">
+          {description}
+        </p>
         <div className=" flex gap-2">
           <div className="badge badge-secondary bg-[#C2F800] border-none font-bold text-black text-[11px] py-0.5 px-2.5">
             {firstMuscle}
@@ -80,7 +82,7 @@ const FitLogDetailsPage = async ({ params }: IFitLogDetailsPageProps) => {
           {stats.map((stat, ind) => (
             <div
               key={ind}
-              className=" flex justify-between items-center px-6 py-3 bg-[#151922] border-b border-[#1E2330] text-[12px] font-bold text-[#9CA3AF] "
+              className=" flex justify-between items-center px-4 lg:px-6 py-3 bg-[#151922] border-b border-[#1E2330] text-[12px] font-bold text-[#9CA3AF] "
             >
               <span>{stat.lable}</span>
               <span>{stat.value}</span>
@@ -95,7 +97,7 @@ const FitLogDetailsPage = async ({ params }: IFitLogDetailsPageProps) => {
             </p>
           ))}
         </div>
-        <div className=" flex gap-4">
+        <div className=" flex gap-4 justify-center lg:justify-start mt-6 ">
           <PlanButton fitLog={fitLog} />
           <SaveButton fitLog={fitLog} />
         </div>
