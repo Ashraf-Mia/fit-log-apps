@@ -2,7 +2,6 @@ import PlanButton from "@/app/components/fitLogDetails/PlanButton";
 import SaveButton from "@/app/components/fitLogDetails/SaveButton";
 import { FitType } from "@/types/FitType";
 import Image from "next/image";
-import React from "react";
 
 interface IFitLogDetailsPageProps {
   params: Promise<{

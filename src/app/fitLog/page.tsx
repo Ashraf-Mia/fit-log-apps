@@ -9,7 +9,6 @@ const getFitLog = async () => {
     });
 
     if (!res.ok) {
-      console.log(`faild to fetch: ${res.status}`);
       return [];
     }
 

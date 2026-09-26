@@ -2,13 +2,9 @@
 
 FitLog is a workout library web application where users can explore different exercises, view workout details, add exercises to today's plan, and save workouts for later.
 
-## Live Website
+## Live Website: https://fit-log-apps.vercel.app/
 
-[Live Demo](YOUR_LIVE_LINK)
-
-## GitHub Repository
-
-[GitHub Repository](YOUR_GITHUB_LINK)
+## GitHub Repository: https://github.com/Ashraf-Mia/fit-log-apps
 
 ## Technologies Used
 
