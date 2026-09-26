@@ -4,10 +4,31 @@ import React, { useContext, useState } from "react";
 
 import MyPlanCard from "../components/shared/MyPlanCard";
 import NothingCard from "../components/shared/NothingCard";
+import { FitType } from "@/types/FitType";
 
 const MyPlanPage = () => {
   const { plan, save } = useContext(FitLogContext);
   const [active, setActive] = useState("plan");
+
+  const [sortBy, setSortBy] = useState<"Duration" | "Calories" | "Rating">(
+    "Duration",
+  );
+
+  const sortFitLog = (fitLog: FitType[]) => {
+    const sortedFitLog = [...fitLog];
+
+    if (sortBy === "Duration") {
+      sortedFitLog.sort((a, b) => b.duration - a.duration);
+    } else if (sortBy === "Calories") {
+      sortedFitLog.sort((a, b) => b.caloriesBurned - a.caloriesBurned);
+    } else if (sortBy === "Rating") {
+      sortedFitLog.sort((a, b) => b.rating - a.rating);
+    }
+    return sortedFitLog;
+  };
+
+  const sortedPlan = sortFitLog(plan);
+  const sortedSave = sortFitLog(save);
 
   const totalExercise = active === "plan" ? plan.length : save.length;
   const totalMinutes =
@@ -54,8 +75,8 @@ const MyPlanPage = () => {
             onChange={() => setActive("plan")}
           />
           <div className="tab-content bg-base-100 border-base-300 p-6">
-            {plan.length > 0 ? (
-              plan.map((planData) => {
+            {sortedPlan.length > 0 ? (
+              sortedPlan.map((planData) => {
                 return <MyPlanCard key={planData.id} planData={planData} />;
               })
             ) : (
@@ -71,8 +92,8 @@ const MyPlanPage = () => {
             onChange={() => setActive("save")}
           />
           <div className="tab-content bg-base-100 border-base-300 p-6">
-            {save.length > 0 ? (
-              save.map((planData) => {
+            {sortedSave.length > 0 ? (
+              sortedSave.map((planData) => {
                 return <MyPlanCard key={planData.id} planData={planData} />;
               })
             ) : (
@@ -84,11 +105,16 @@ const MyPlanPage = () => {
           <h1 className=" whitespace-nowrap text-[12px] text-[#8A92A0]">
             Sort By
           </h1>
-          <select defaultValue="Pick a color" className="select">
-            <option disabled={true}>Pick a color</option>
-            <option>Crimson</option>
-            <option>Amber</option>
-            <option>Velvet</option>
+          <select
+            value={sortBy}
+            onChange={(e) =>
+              setSortBy(e.target.value as "Duration" | "Calories" | "Rating")
+            }
+            className="select"
+          >
+            <option value={"Duration"}>Duration</option>
+            <option value={"Calories"}>Calories</option>
+            <option value={"Rating"}>Rating</option>
           </select>
         </div>
       </div>

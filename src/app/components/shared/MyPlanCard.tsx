@@ -1,7 +1,6 @@
 import { FitType } from "@/types/FitType";
 import Image from "next/image";
 
-import React from "react";
 import { GoClock } from "react-icons/go";
 import { IoIosStarOutline } from "react-icons/io";
 import { PiFireFill } from "react-icons/pi";
