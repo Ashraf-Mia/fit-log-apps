@@ -46,7 +46,7 @@ FitLog is fully responsive and works on:
 
 FitLog uses the following API:
 
-`https://api.abcz.workers.dev/api/fitlog`
+`https://api.api-store.workers.dev/api/fitlog`
 
 ## Project Structure
 

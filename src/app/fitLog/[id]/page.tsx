@@ -13,9 +13,12 @@ interface IFitLogDetailsPageProps {
 const FitLogDetailsPage = async ({ params }: IFitLogDetailsPageProps) => {
   const { id } = await params;
 
-  const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`, {
-    cache: "force-cache",
-  });
+  const res = await fetch(
+    `https://api.api-store.workers.dev/api/fitlog/${id}`,
+    {
+      cache: "force-cache",
+    },
+  );
   const fitLog = (await res.json()) as FitType;
 
   const {
