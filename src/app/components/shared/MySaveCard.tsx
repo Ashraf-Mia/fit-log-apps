@@ -11,26 +11,15 @@ import { IoCloseSharp } from "react-icons/io5";
 import { PiFireFill } from "react-icons/pi";
 import { toast } from "react-toastify";
 
-const MyPlanCard = ({ planData }: { planData: FitType }) => {
+const MySaveCard = ({ planData }: { planData: FitType }) => {
   const { name, image, equipment, duration, caloriesBurned, rating } = planData;
 
-  const { plan, setPlan, save, setSave } = useContext(FitLogContext);
+  const { save, setSave } = useContext(FitLogContext);
 
   const handleDelete = () => {
-    const updatePlan = plan.filter((card) => card.id !== planData.id);
-    setPlan(updatePlan);
+    const updatePlan = save.filter((card) => card.id !== planData.id);
+    setSave(updatePlan);
     toast.warning(`${planData.name} removed from your plan`);
-  };
-
-  const handleMarkAsDone = () => {
-    const isSaved = save.some((item) => item.id === planData.id);
-    if (isSaved === true) {
-      toast.info("This workout is already in your saved tab");
-      return;
-    }
-
-    setSave([...save, planData]);
-    toast.success(`${planData.name} marked as done and added to saved`);
   };
 
   return (
@@ -77,13 +66,6 @@ const MyPlanCard = ({ planData }: { planData: FitType }) => {
           </Link>
 
           <button
-            onClick={handleMarkAsDone}
-            className=" btn btn-success bg-[#CCFF00] border-none rounded-3xl text-[12px] font-semibold"
-          >
-            ✔ Mark as Done
-          </button>
-
-          <button
             onClick={handleDelete}
             className=" text-3xl text-[#6B7280] cursor-pointer"
           >
@@ -95,4 +77,4 @@ const MyPlanCard = ({ planData }: { planData: FitType }) => {
   );
 };
 
-export default MyPlanCard;
+export default MySaveCard;

@@ -1,5 +1,5 @@
 import { FitType } from "@/types/FitType";
-import React from "react";
+
 import FitCards from "../components/shared/FitCards";
 
 const getFitLog = async () => {

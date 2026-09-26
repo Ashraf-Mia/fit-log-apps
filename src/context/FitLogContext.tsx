@@ -20,11 +20,16 @@ const FitLogProvider = ({ children }: { children: ReactNode }) => {
   const [plan, setPlan] = useState<FitType[]>([]);
   const [save, setSave] = useState<FitType[]>([]);
 
+  const removeItem = (id: string) => {
+    setPlan(plan.filter((item) => String(item.id) !== id));
+  };
+
   const sharedData = {
     save,
     setSave,
     plan,
     setPlan,
+    removeItem,
   };
 
   return (

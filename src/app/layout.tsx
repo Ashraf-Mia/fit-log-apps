@@ -34,11 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Navbar />
           <div>{children}</div>
           <Footer />
-          <ToastContainer
-            position="bottom-right"
-            autoClose={3000}
-            theme="colored"
-          />
+          <ToastContainer position="bottom-right" autoClose={3000} />
         </FitLogProvider>
       </body>
     </html>

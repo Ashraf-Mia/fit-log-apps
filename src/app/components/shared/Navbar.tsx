@@ -4,16 +4,36 @@ import Link from "next/link";
 import React, { useContext } from "react";
 import logo from "@/assets/logo.png";
 import { FitLogContext } from "@/context/FitLogContext";
+import { usePathname } from "next/navigation";
 const Navbar = () => {
   const { plan, save } = useContext(FitLogContext);
-
+  const pathname = usePathname();
   const links = (
     <>
-      <li>
-        <Link href="/"> Workouts</Link>
+      <li className=" text-[12px] text-[#9CA3AF]">
+        <Link
+          href="/"
+          className={
+            pathname === "/"
+              ? " bg-[#1A2312] text-[#C2F800] font-semibold text-[12px]"
+              : ""
+          }
+        >
+          {" "}
+          Workouts
+        </Link>
       </li>
-      <li>
-        <Link href="/myPlan">My Plan</Link>
+      <li className=" text-[12px] text-[#9CA3AF]">
+        <Link
+          href="/myPlan"
+          className={
+            pathname === "/myPlan"
+              ? " bg-[#1A2312] text-[#C2F800] font-semibold text-[12px]"
+              : ""
+          }
+        >
+          My Plan
+        </Link>
       </li>
     </>
   );
@@ -43,7 +63,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={-1}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow "
             >
               {links}
             </ul>

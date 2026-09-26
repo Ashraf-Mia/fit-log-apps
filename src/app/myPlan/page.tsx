@@ -5,6 +5,7 @@ import React, { useContext, useState } from "react";
 import MyPlanCard from "../components/shared/MyPlanCard";
 import NothingCard from "../components/shared/NothingCard";
 import { FitType } from "@/types/FitType";
+import MySaveCard from "../components/shared/MySaveCard";
 
 const MyPlanPage = () => {
   const { plan, save } = useContext(FitLogContext);
@@ -94,7 +95,7 @@ const MyPlanPage = () => {
           <div className="tab-content bg-base-100 border-base-300 p-6">
             {sortedSave.length > 0 ? (
               sortedSave.map((planData) => {
-                return <MyPlanCard key={planData.id} planData={planData} />;
+                return <MySaveCard key={planData.id} planData={planData} />;
               })
             ) : (
               <NothingCard />
