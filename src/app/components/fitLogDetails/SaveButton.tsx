@@ -9,6 +9,11 @@ const SaveButton = ({ fitLog }: { fitLog: FitType }) => {
   const { save, setSave } = useContext(FitLogContext);
 
   const handleSaveButton = () => {
+    const isAlreadySaved = save.some((card: FitType) => card.id === fitLog.id);
+    if (isAlreadySaved === true) {
+      toast.warning("This workout is already in your save");
+      return;
+    }
     setSave([...save, fitLog]);
     toast.success(`You have save ${fitLog.name}`);
   };

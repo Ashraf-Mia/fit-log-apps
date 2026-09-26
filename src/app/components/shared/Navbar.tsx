@@ -1,8 +1,12 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import logo from "@/assets/logo.png";
+import { FitLogContext } from "@/context/FitLogContext";
 const Navbar = () => {
+  const { plan, save } = useContext(FitLogContext);
+
   const links = (
     <>
       <li>
@@ -52,9 +56,19 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
-        <div className="navbar-end gap-0.5">
-          <a>Plan</a>
-          <a>Saved</a>
+        <div className="navbar-end  gap-6 list-none">
+          <li className=" text-[#D1D5DB] text-[12px]">
+            Plan{" "}
+            <span className=" inline-flex justify-center items-center w-5 h-5 rounded-full bg-[#C2F800] text-black font-bold text-[12px] ">
+              {plan.length}
+            </span>
+          </li>
+          <li className="text-[#D1D5DB] text-[12px]">
+            Saved{" "}
+            <span className="inline-flex justify-center items-center w-6 h-6 rounded-full border border-[#4e525b] font-bold text-[12px] ">
+              {save.length}
+            </span>
+          </li>
         </div>
       </div>
     </nav>
