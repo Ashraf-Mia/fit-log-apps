@@ -77,18 +77,22 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end  gap-6 list-none">
-          <li className=" text-[#D1D5DB] text-[12px]">
-            Plan{" "}
-            <span className=" inline-flex justify-center items-center w-5 h-5 rounded-full bg-[#C2F800] text-black font-bold text-[12px] ">
-              {plan.length}
-            </span>
-          </li>
-          <li className="text-[#D1D5DB] text-[12px]">
-            Saved{" "}
-            <span className="inline-flex justify-center items-center w-6 h-6 rounded-full border border-[#4e525b] font-bold text-[12px] ">
-              {save.length}
-            </span>
-          </li>
+          <Link href="/myPlan">
+            <li className=" text-[#D1D5DB] text-[12px]">
+              Plan{" "}
+              <span className=" inline-flex justify-center items-center w-5 h-5 rounded-full bg-[#C2F800] text-black font-bold text-[12px] ">
+                {plan.length}
+              </span>
+            </li>
+          </Link>
+          <Link href="/myPlan">
+            <li className="text-[#D1D5DB] text-[12px]">
+              Saved{" "}
+              <span className="inline-flex justify-center items-center w-6 h-6 rounded-full border border-[#4e525b] font-bold text-[12px] ">
+                {save.length}
+              </span>
+            </li>
+          </Link>
         </div>
       </div>
     </nav>
