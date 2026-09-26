@@ -6,7 +6,7 @@ const Banner = () => {
   return (
     <div className=" container mx-auto bg-[#15171D] border border-[#222630] rounded-2xl flex flex-col lg:flex-row items-center text-center  justify-between p-6 md:p-10 lg:px-14 lg:py-18.25 gap-8">
       <div className=" space-y-5 lg:text-left">
-        <p className=" text-[#C2F800] font-bold lg:text-[12px] text-xs md:text-sm">
+        <p className=" text-[#C2F800] font-bold lg:text-[12px] text-xs md:text-sm ">
           WORKOUT LIBRARY
         </p>
         <h2 className=" font-oswald text-3xl md:text-5xl lg:text-[60px] font-bold leading-tight lg:leading-16 tracking-[-1.5px] ">
