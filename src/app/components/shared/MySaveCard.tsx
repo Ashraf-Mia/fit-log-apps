@@ -19,7 +19,7 @@ const MySaveCard = ({ planData }: { planData: FitType }) => {
   const handleDelete = () => {
     const updatePlan = save.filter((card) => card.id !== planData.id);
     setSave(updatePlan);
-    toast.warning(`${planData.name} removed from your plan`);
+    toast.warning(`${planData.name} removed from your saved`);
   };
 
   return (

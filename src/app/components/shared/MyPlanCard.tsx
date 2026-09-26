@@ -30,6 +30,8 @@ const MyPlanCard = ({ planData }: { planData: FitType }) => {
     }
 
     setSave([...save, planData]);
+    const updatePlan = plan.filter((card) => card.id !== planData.id);
+    setPlan(updatePlan);
     toast.success(`${planData.name} marked as done and added to saved`);
   };
 
