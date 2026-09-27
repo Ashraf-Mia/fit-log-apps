@@ -39,7 +39,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className=" bg-base-100 shadow-sm py-6.5 sticky top-0 z-50">
+    <nav className=" bg-base-100 shadow-sm py-3 md:py-5 lg:py-6.5 sticky top-0 z-50">
       <div className="navbar container mx-auto ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -80,7 +80,7 @@ const Navbar = () => {
           <Link href="/myPlan">
             <li className=" text-[#D1D5DB] text-[12px]">
               Plan{" "}
-              <span className=" inline-flex justify-center items-center w-5 h-5 rounded-full bg-[#C2F800] text-black font-bold text-[12px] ">
+              <span className=" inline-flex justify-center items-center w-6 h-5 rounded-full bg-[#C2F800] text-black font-bold text-[12px] ">
                 {plan.length}
               </span>
             </li>
@@ -88,7 +88,7 @@ const Navbar = () => {
           <Link href="/myPlan">
             <li className="text-[#D1D5DB] text-[12px]">
               Saved{" "}
-              <span className="inline-flex justify-center items-center w-6 h-6 rounded-full border border-[#4e525b] font-bold text-[12px] ">
+              <span className="inline-flex justify-center items-center w-7 h-6 rounded-full border border-[#4e525b] font-bold text-[12px] ">
                 {save.length}
               </span>
             </li>
